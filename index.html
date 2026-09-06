@@ -1,111 +1,260 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S.D.M.G. 3D | Impresión 3D</title>
-  <style>
-    :root{--bg:#0b0d12;--card:#151922;--text:#f5f7fb;--muted:#a7afbd;--accent:#7c5cff;--accent2:#20d6a0;--border:#252b38}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1120px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-size:1.35rem;font-weight:800}.logo span{color:var(--accent)}
-    .navlinks{display:flex;gap:25px;color:var(--muted);font-size:.95rem}.navlinks a:hover{color:white}
-    .cart{background:var(--accent);padding:10px 16px;border-radius:10px;font-weight:700}
-    .hero{padding:95px 0 80px;background:radial-gradient(circle at 75% 20%,rgba(124,92,255,.2),transparent 35%)}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}
-    .badge{display:inline-block;border:1px solid #383d4b;border-radius:99px;padding:7px 13px;color:#cbd1dc;font-size:.85rem;margin-bottom:18px}
-    h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.98;letter-spacing:-.06em;margin-bottom:22px}
-    h1 span{color:var(--accent)}
-    .hero p{font-size:1.12rem;color:var(--muted);max-width:600px;margin-bottom:30px}
-    .buttons{display:flex;gap:13px;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:11px;font-weight:750;border:1px solid var(--border)}
-    .btn.primary{background:var(--accent);border-color:var(--accent)}.btn.secondary{background:var(--card)}
-    .hero-card{height:380px;border-radius:25px;background:linear-gradient(145deg,#1b2030,#10131a);border:1px solid var(--border);display:grid;place-items:center;overflow:hidden;position:relative}
-    .cube{width:170px;height:170px;background:linear-gradient(135deg,var(--accent),#a99aff);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);filter:drop-shadow(0 30px 35px rgba(124,92,255,.3))}
-    section{padding:75px 0}.section-title{text-align:center;font-size:2.2rem;margin-bottom:10px}.section-sub{text-align:center;color:var(--muted);margin-bottom:38px}
-    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .product{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);border-color:#3c4352}
-    .product-img{height:210px;background:#202633;display:grid;place-items:center;color:#747d8e;font-size:3rem}
-    .product-body{padding:20px}.product h3{margin-bottom:6px}.product p{color:var(--muted);font-size:.92rem;min-height:48px}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px}.price{font-size:1.2rem;font-weight:800}.buy{background:var(--accent);padding:9px 13px;border-radius:9px;font-weight:700;border:0;color:white;cursor:pointer}
-    .custom{background:linear-gradient(120deg,#171b28,#12151c);border:1px solid var(--border);border-radius:22px;padding:45px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-    .custom h2{font-size:2rem;margin-bottom:10px}.custom p{color:var(--muted)}.steps{display:grid;gap:14px}.step{padding:15px;background:#0e1117;border:1px solid var(--border);border-radius:12px}.step b{color:var(--accent2)}
-    footer{border-top:1px solid var(--border);padding:35px 0;color:var(--muted);display:flex;justify-content:space-between;gap:20px}
-    @media(max-width:800px){.hero-grid,.custom{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.navlinks{display:none}}
-    @media(max-width:520px){.products{grid-template-columns:1fr}.hero{padding-top:65px}footer{flex-direction:column}}
-  </style>
-</head>
-<body>
-<header>
-  <div class="container">
-    <nav>
-      <a class="logo" href="#">S.D.M.G. <span>3D</span></a>
-      <div class="navlinks"><a href="#productos">Productos</a><a href="#personalizados">Personalizados</a><a href="#contacto">Contacto</a></div>
-      <a class="cart" href="https://es.wallapop.com/user/vzxxf-197864111?_uid=197864111&_pid=wi" target="_blank" rel="noopener">🛒 Ver catálogo</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="badge">🖨️ Fabricación en impresión 3D</div>
-      <h1>Ideas que se convierten en <span>piezas.</span></h1>
-      <p>Diseños originales, piezas personalizadas y productos impresos en 3D. Elige un modelo o cuéntame qué necesitas y lo fabricamos para ti.</p>
-      <div class="buttons"><a class="btn primary" href="#productos">Ver productos</a><a class="btn secondary" href="#personalizados">Pedir personalizado</a></div>
-    </div>
-    <div class="hero-card"><div class="cube"></div></div>
-  </div>
-</section>
-
-<section id="productos">
-  <div class="container">
-    <h2 class="section-title">Productos destacados</h2>
-    <p class="section-sub">Sustituye estos productos por tus propias creaciones.</p>
-    <div class="products">
-      <article class="product"><div class="product-img">🔧</div><div class="product-body"><h3>Soporte multiusos</h3><p>Práctico soporte impreso en 3D para escritorio o taller.</p><div class="price-row"><span class="price">12,90 €</span><button class="buy" onclick="pedido('Soporte multiusos')">Pedir</button></div></div></article>
-      <article class="product"><div class="product-img">🎮</div><div class="product-body"><h3>Accesorio gaming</h3><p>Accesorio personalizado para tu setup y tus dispositivos.</p><div class="price-row"><span class="price">19,90 €</span><button class="buy" onclick="pedido('Accesorio gaming')">Pedir</button></div></div></article>
-      <article class="product"><div class="product-img">🧩</div><div class="product-body"><h3>Figura personalizada</h3><p>Diseños decorativos y figuras fabricadas bajo pedido.</p><div class="price-row"><span class="price">Desde 15 €</span><button class="buy" onclick="pedido('Figura personalizada')">Pedir</button></div></div></article>
-    </div>
-  </div>
-</section>
-
-<section id="personalizados">
-  <div class="container">
-    <div class="custom">
-      <div><h2>¿Tienes una idea?</h2><p>Puedo fabricar piezas a medida, modificar diseños existentes o crear una solución adaptada a lo que necesitas.</p><br><a class="btn primary" href="#contacto">Solicitar presupuesto</a></div>
-      <div class="steps">
-        <div class="step"><b>01.</b> Cuéntame qué necesitas</div>
-        <div class="step"><b>02.</b> Te preparo una propuesta y precio</div>
-        <div class="step"><b>03.</b> Imprimo y preparo tu pedido</div>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S.D.M.G. 3D | Impresión 3D</title>
+<style>
+:root{--bg:#0b0d12;--card:#151922;--text:#f5f7fb;--muted:#a7afbd;--accent:#7c5cff;--accent2:#20d6a0;--border:#252b38}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}header{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.35rem;font-weight:800}.logo span{color:var(--accent)}.navlinks{display:flex;gap:25px;color:var(--muted)}.navlinks a:hover{color:white}
+.cart,.buy{background:var(--accent);padding:10px 16px;border-radius:10px;font-weight:700}.hero{padding:90px 0 70px;background:radial-gradient(circle at 75% 20%,rgba(124,92,255,.2),transparent 35%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}.badge{display:inline-block;border:1px solid #383d4b;border-radius:99px;padding:7px 13px;color:#cbd1dc;font-size:.85rem;margin-bottom:18px}
+h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.98;letter-spacing:-.06em;margin-bottom:22px}h1 span{color:var(--accent)}.hero p{font-size:1.12rem;color:var(--muted);max-width:600px;margin-bottom:30px}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}.btn{padding:13px 20px;border-radius:11px;font-weight:750;border:1px solid var(--border)}.btn.primary{background:var(--accent);border-color:var(--accent)}.btn.secondary{background:var(--card)}
+.hero-card{height:350px;border-radius:25px;background:linear-gradient(145deg,#1b2030,#10131a);border:1px solid var(--border);display:grid;place-items:center}.cube{width:180px;height:180px;background:linear-gradient(135deg,var(--accent),#a99aff);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;font-size:3rem;font-weight:900}
+section{padding:70px 0}.section-title{text-align:center;font-size:2.2rem;margin-bottom:10px}.section-sub{text-align:center;color:var(--muted);margin-bottom:38px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);border-color:#3c4352}
+.product-img{height:170px;background:#202633;display:grid;place-items:center}.cube-mini{width:90px;height:90px;background:linear-gradient(135deg,var(--accent),#a99aff);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;font-weight:900}
+.product-body{padding:20px}.product h3{margin-bottom:6px}.product p{color:var(--muted);font-size:.92rem;min-height:48px}.price-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px}.price{font-weight:800;color:var(--accent2);font-size:.9rem}
+.custom{background:linear-gradient(120deg,#171b28,#12151c);border:1px solid var(--border);border-radius:22px;padding:45px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.custom p{color:var(--muted)}.steps{display:grid;gap:14px}.step{padding:15px;background:#0e1117;border:1px solid var(--border);border-radius:12px}
+footer{border-top:1px solid var(--border);padding:35px 0;color:var(--muted);text-align:center}
+@media(max-width:850px){.hero-grid,.custom{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.navlinks{display:none}}@media(max-width:520px){.products{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="container"><nav><a class="logo" href="#">S.D.M.G. <span>3D</span></a>
+<div class="navlinks"><a href="#catalogo">Catálogo</a><a href="#personalizados">Personalizados</a><a href="#contacto">Contacto</a></div>
+<a class="cart" href="https://es.wallapop.com/user/vzxxf-197864111?_uid=197864111&_pid=wi" target="_blank">🛒 Mi Wallapop</a></nav></div></header>
+<main><section class="hero"><div class="container hero-grid"><div><div class="badge">🖨️ Fabricación en impresión 3D</div>
+<h1>Ideas que se convierten en <span>piezas.</span></h1><p>Diseños originales, piezas personalizadas y productos impresos en 3D.</p>
+<div class="buttons"><a class="btn primary" href="#catalogo">Ver catálogo</a><a class="btn secondary" href="https://es.wallapop.com/user/vzxxf-197864111?_uid=197864111&_pid=wi" target="_blank">Ver Wallapop</a></div></div>
+<div class="hero-card"><div class="cube">3D</div></div></div></section>
+<section id="catalogo"><div class="container"><h2 class="section-title">Catálogo</h2>
+<p class="section-sub">Todos los productos enlazan directamente con su anuncio de Wallapop.</p><div class="products"><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Organizador maquillaje corazón rojo</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/organizador-maquillaje-corazon-rojo-1298906047" target="_blank" rel="noopener">Ver en Wallapop</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="contacto">
-  <div class="container" style="text-align:center">
-    <h2 class="section-title">¿Hablamos?</h2>
-    <p class="section-sub">Añade aquí tu WhatsApp, Instagram o correo para recibir pedidos.</p>
-    <div class="buttons" style="justify-content:center">
-      <a class="btn primary" href="https://wa.me/34639062725">WhatsApp</a>
-      <a class="btn secondary" href="https://es.wallapop.com/user/vzxxf-197864111?_uid=197864111&_pid=wi">Email</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer id="footer"><div class="container" style="display:flex;justify-content:space-between;width:100%;gap:20px"><span>© 2026 S.D.M.G. 3D</span><span>Hecho con ❤️ e impresión 3D</span></div></footer>
-
-<script>
-function pedido(producto){
-  const telefono="34639062725";
-  const texto=encodeURIComponent("Hola, estoy interesado en: "+producto);
-  window.open("https://wa.me/"+telefono+"?text="+texto,"_blank");
-}
-</script>
-</body>
-</html>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte pared casco ciclismo negro</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-pared-casco-ciclismo-negro-1298901985" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Llavero Alas de Sangre Dragón</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/llavero-alas-de-sangre-dragon-1298899774" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Bebé dragón Andarna Alas de Sangre</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/bebe-dragon-andarna-alas-de-sangre-1298693078" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Organizador de escritorio hada rosa</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/organizador-de-escritorio-hada-rosa-1298692412" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Cortadores de galletas Hello Kitty azul</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/cortadores-galletas-hello-kitty-plastico-azul-1298691866" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Set cortadores de galletas Halloween</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/set-cortadores-galletas-halloween-plastico-1298691727" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Bandeja corazón Hello Kitty rosa</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/bandeja-corazon-hello-kitty-rosa-1298690602" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte móvil gato blanco</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-movil-gato-blanco-1298689580" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Cuenco hoja de arce roja</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/cuenco-hoja-de-arce-roja-1298688478" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Organizador de escritorio rosa con diseño de caramelo</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/organizador-de-escritorio-rosa-con-diseno-de-caram-1298687739" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Organizador de maquillaje con lazos</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/organizador-de-maquillaje-con-lazos-1298686910" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Figuras Meccha Chameleon</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/figuras-meccha-chameleon-1291332039" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Portalápices Hulk</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/portalapices-hulk-1298630905" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Portaplumas dragón negro</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/portaplumas-dragon-negro-1298629368" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Organizador de maquillaje corazón</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/organizador-de-maquillaje-corazon-1292954325" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Cortadores de galletas Minecraft — set 5 piezas</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/cortadores-galletas-minecraft-set-5-piezas-1297677835" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Cortadores de galletas One Piece</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/cortadores-galletas-one-piece-1297676400" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Cortadores de galletas Super Mario Bros</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/cortadores-galletas-super-mario-bros-1297670199" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Agarradera de pulgar Ricoh GR III / GR IIIx</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/agarradera-pulgar-ricoh-griii-gr3x-1295752754" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Estantería inclinada para libros</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/estanteria-inclinada-para-libros-1292961856" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte horizontal PS5 con lector CD</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-horizontal-ps5-con-lector-cd-1291944164" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte minimalista Game Boy</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-minimalista-game-boy-1291899421" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Expositor cartuchos Game Boy / GBA negro</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/expositor-cartuchos-game-boy-gba-negro-1291898926" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte Nintendo Switch</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-nintendo-switch-1291898497" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte mando y cascos Xbox</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-mando-y-cascos-xbox-1291898135" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Soporte mandos y casco PS5</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/soporte-mandos-y-casco-ps5-1291895851" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article><article class="product">
+      <div class="product-img"><div class="cube-mini">3D</div></div>
+      <div class="product-body">
+        <h3>Figura Shangri-La Frontier</h3>
+        <p>Producto disponible en Wallapop. Pulsa para ver fotos, precio y detalles.</p>
+        <div class="price-row"><span class="price">Ver anuncio</span>
+        <a class="buy" href="https://es.wallapop.com/item/figura-shangri-la-frontier-1267288444" target="_blank" rel="noopener">Ver en Wallapop</a></div>
+      </div>
+    </article></div></div></section>
+<section id="personalizados"><div class="container"><div class="custom"><div><h2>¿Tienes una idea?</h2><p>Puedo fabricar piezas a medida, modificar diseños o crear una solución adaptada a lo que necesitas.</p><br>
+<a class="btn primary" href="https://wa.me/34639062725?text=Hola%2C%20quiero%20pedir%20un%20producto%20personalizado" target="_blank">Solicitar presupuesto</a></div>
+<div class="steps"><div class="step"><b>01.</b> Cuéntame qué necesitas</div><div class="step"><b>02.</b> Te preparo una propuesta y precio</div><div class="step"><b>03.</b> Imprimo y preparo tu pedido</div></div></div></div></section>
+<section id="contacto"><div class="container" style="text-align:center"><h2 class="section-title">¿Hablamos?</h2><p class="section-sub">También puedes contactar conmigo directamente por WhatsApp.</p>
+<a class="btn primary" href="https://wa.me/34639062725" target="_blank">WhatsApp</a></div></section></main>
+<footer>© 2026 S.D.M.G. 3D · Hecho con ❤️ e impresión 3D</footer></body></html>
